@@ -8,6 +8,8 @@
     "react-scripts": "2.1.8"
   },
   "scripts": {
+    "lint:js": "eslint src/*.js",
+    "lint:css": "stylelint src.*.css", 
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
