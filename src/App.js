@@ -3,7 +3,7 @@ import './App.css';
 
 const ChooseDifficulty = (props) => {
   return (
-    <div className = "modal" style = {{visibility: props.isDifficultyVisible ? "visible" : "hidden"}}>
+    <div className = "modal" style = {{visibility: props.isDifficultyVisible ? "visible" : "hidden",}}>
       <div className = "modalContent">
         <p>Please, choose a level:</p>
         <div className = "radioContainer">
@@ -35,8 +35,8 @@ const Card = (props) => {
       className = {`cards${props.numberOfCards} card` + (props.cardProperties.opened?" flip":" scale")}
       onClick = {() => props.onClick(props.cardProperties.id)}
       style = {{
-        order:props.cardProperties.positionOnField,
-        visibility:props.cardProperties.hidden ? "hidden" : "visible"
+        order: props.cardProperties.positionOnField,
+        visibility: props.cardProperties.hidden ? "hidden" : "visible",
       }}
     >
       <img src=  "img/js-badge.svg" alt = {props.cardProperties.id} className = "backImg"/>

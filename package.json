@@ -7,9 +7,14 @@
     "react-dom": "^16.8.6",
     "react-scripts": "2.1.8"
   },
+  "devDependencies": {
+    "eslint": "5.16.0",
+    "stylelint": "^10.0.0",
+    "stylelint-config-standard": "^18.2.0"
+  },
   "scripts": {
     "lint:js": "eslint src/*.js",
-    "lint:css": "stylelint src.*.css", 
+    "lint:css": "stylelint src/*.css",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
