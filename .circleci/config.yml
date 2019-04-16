@@ -39,3 +39,7 @@ jobs:
       - run:
           name: check css style
           command: npm run lint:css
+
+      - run:
+          name: build project
+          command: npm run build
