@@ -76,7 +76,7 @@ const CardsContainer12 = (props) => {
       cardsForHide.forEach(card => card.hidden = true);
       cardsForHide.forEach(card => card.opened = false);
       setCardsProperties(cardsPropertiesNew);
-      if (!getVisibleCardsNum()) props.stopTimer();
+      if (!getVisibleCardsNum()) props.setTimerIsActive(false);
       setFieldIsLocked(false);
     }, 1000);
   }
@@ -122,8 +122,7 @@ const CardsContainer12 = (props) => {
     <main id = "cardsContainer">
       <div id = "innerContainer">
       <Timer 
-        timeOfStart = {props.timeOfStart}
-        timerStop = {timerStopped}
+        timerValue = {props.timerValue}
       />
         {cardsProperties.map((cardProperties, index) =>(
           <Card
@@ -131,7 +130,6 @@ const CardsContainer12 = (props) => {
             cardProperties = {cardProperties}
             onClick = {(id) => cardOnClick(id)}
             numberOfCards = {12}
-            timerValue = {props.timerValue}
           />
         ))}
       </div>
@@ -162,7 +160,7 @@ const CardsContainer12 = (props) => {
       cardsForHide.forEach(card => card.hidden = true);
       cardsForHide.forEach(card => card.opened = false);
       setCardsProperties(cardsPropertiesNew);
-      if (!getVisibleCardsNum()) props.stopTimer();
+      if (!getVisibleCardsNum()) props.setTimerIsActive(false);
       setFieldIsLocked(false);
     }, 1000);
   }
@@ -207,14 +205,13 @@ const CardsContainer12 = (props) => {
   return (
     <main id = "cardsContainer">
       <div id = "innerContainer">
-      <Timer timeOfStart = {props.timeOfStart}/>
+      <Timer timerValue = {props.timerValue}/>
         {cardsProperties.map((cardProperties, index) =>(
           <Card
             key = {index}
             cardProperties = {cardProperties}
             onClick = {(id) => cardOnClick(id)}
             numberOfCards = {20}
-            timerValue = {props.timerValue}
           />
         ))}
        </div>
@@ -245,7 +242,7 @@ const CardsContainer12 = (props) => {
       cardsForHide.forEach(card => card.hidden = true);
       cardsForHide.forEach(card => card.opened = false);
       setCardsProperties(cardsPropertiesNew);
-      if (!getVisibleCardsNum()) props.stopTimer();
+      if (!getVisibleCardsNum()) props.setTimerIsActive(false);
       setFieldIsLocked(false);
     }, 1000);
   }
@@ -290,14 +287,13 @@ const CardsContainer12 = (props) => {
   return (
     <main id = "cardsContainer">
       <div id = "innerContainer">
-      <Timer timeOfStart = {props.timeOfStart}/>
+      <Timer timerValue = {props.timerValue}/>
         {cardsProperties.map((cardProperties, index) =>(
           <Card
             key = {index}
             cardProperties = {cardProperties}
             onClick = {(id) => cardOnClick(id)}
             numberOfCards = {30}
-            timerValue = {props.timerValue}
           />
         ))}
        </div>
@@ -310,9 +306,12 @@ const App = () => {
   const [isDifficultyVisible, setDifficultyVisible] = useState(true);
   const [numberOfCards, setNumberOfCards] = useState(0);
   const [timeOfStart, setTimeOfStart] = useState(new Date());
+  const [timerIsActive, setTimerIsActive] = useState(false);
   const [timerValue, setTimerValue] = useState('00:00');
 
-  const timerId = setInterval(() => {
+useEffect(() => {
+  if(timerIsActive) {
+  const timerId = setTimeout(() => {
     const secondsForTimer = Math.round(((new Date()) - timeOfStart)/1000);
     let minutes = Math.floor(secondsForTimer / 60);
     if (minutes < 10) minutes = `0${minutes}`;
@@ -320,19 +319,17 @@ const App = () => {
     if (seconds < 10) seconds = `0${seconds}`;
     setTimerValue(`${minutes}:${seconds}`);
   }, 1000);
-
-  const stopTimer = () => {
-    clearInterval(timerId);
-  }
+return () => clearTimeout(timerId);
+}});
 
   return (
     <>
       {numberOfCards===12?
-        (<CardsContainer12 timerValue = {timerValue} stopTimer = {stopTimer}/>):
+        (<CardsContainer12 timerValue = {timerValue} setTimerIsActive = {setTimerIsActive}/>):
         numberOfCards===20?
-          (<CardsContainer20 timerValue = {timerValue} stopTimer = {stopTimer}/>):
+          (<CardsContainer20 timerValue = {timerValue} setTimerIsActive = {setTimerIsActive}/>):
             numberOfCards===30?
-            (<CardsContainer30 timerValue = {timerValue} stopTimer = {stopTimer}/>):
+            (<CardsContainer30 timerValue = {timerValue} setTimerIsActive = {setTimerIsActive}/>):
             <></>
       }
       <ChooseDifficulty 
@@ -343,6 +340,7 @@ const App = () => {
           setDifficultyVisible(false);
           setNumberOfCards(parseInt(document.querySelector('input[name="difficulty"]:checked').value, 10));
           setTimeOfStart(new Date());
+          setTimerIsActive(true);
         }}
       />
     </> 
