@@ -12,6 +12,15 @@
     "stylelint": "10.0.1",
     "stylelint-config-standard": "18.3.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liubich/memory-game.git"
+  },
+  "author": "liubich",
+  "bugs": {
+    "url": "https://github.com/liubich/react-mem-game/issues"
+  },
+  "homepage": "https://github.com/liubich/react-mem-game#readme", 
   "scripts": {
     "lint:js": "eslint src/*.js",
     "lint:css": "stylelint src/*.css",
