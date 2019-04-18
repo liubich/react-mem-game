@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/liubich/react-mem-game/static/js/runtime~main.234af56c.js"
   },
   {
-    "revision": "c20447f08ad13e0b567a",
+    "revision": "588ba0df3be76b0528ad",
     "url": "/liubich/react-mem-game/static/js/main.553e8a23.chunk.js"
   },
   {
@@ -12,11 +12,11 @@ self.__precacheManifest = [
     "url": "/liubich/react-mem-game/static/js/2.5286435d.chunk.js"
   },
   {
-    "revision": "c20447f08ad13e0b567a",
-    "url": "/liubich/react-mem-game/static/css/main.aeb4dd9f.chunk.css"
+    "revision": "588ba0df3be76b0528ad",
+    "url": "/liubich/react-mem-game/static/css/main.eb2e67d2.chunk.css"
   },
   {
-    "revision": "d3d3e929267f2730db397b972b384ae3",
+    "revision": "b384bbe51d2bec0e598f7deff51f91fc",
     "url": "/liubich/react-mem-game/index.html"
   }
 ];

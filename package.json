@@ -8,7 +8,6 @@
     "react-scripts": "2.1.8"
   },
   "devDependencies": {
-    "eslint": "5.16.0",
     "stylelint": "10.0.1",
     "stylelint-config-standard": "18.3.0"
   },
@@ -20,7 +19,7 @@
   "bugs": {
     "url": "https://github.com/liubich/react-mem-game/issues"
   },
-  "homepage": "https://github.com/liubich/react-mem-game#readme", 
+  "homepage": "https://github.com/liubich/react-mem-game#readme",
   "scripts": {
     "lint:js": "eslint src/*.js",
     "lint:css": "stylelint src/*.css",

@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/liubich/react-mem-game/precache-manifest.9c6a64c9acad4bc33552f849bae2b258.js"
+  "/liubich/react-mem-game/precache-manifest.0e4b580ba8c86e8230e95f9c097d0cb0.js"
 );
 
 workbox.clientsClaim();
