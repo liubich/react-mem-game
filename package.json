@@ -19,7 +19,7 @@
   "bugs": {
     "url": "https://github.com/liubich/react-mem-game/issues"
   },
-  "homepage": "https://github.com/liubich/react-mem-game#readme",
+  "homepage": "https://mem-game-react.netlify.com",
   "scripts": {
     "lint:js": "eslint src/*.js",
     "lint:css": "stylelint src/*.css",
