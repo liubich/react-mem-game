@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Timer from './Timer/Timer.js';
+import Timer from '../Timer/Timer.js';
 import Card from '../Card/Card.js';
 
 const CardsContainer = (props) => {

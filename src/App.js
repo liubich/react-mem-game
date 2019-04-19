@@ -26,14 +26,7 @@ return () => clearTimeout(timerId);
 
   return (
     <>
-      {numberOfCards?(<CardsContainer timerValue = {timerValue} setTimerIsActive = {setTimerIsActive} numberOfCards = {numberOfCards}/>):(<></>)}
-      {/* {numberOfCards===12?
-        (<CardsContainer12 timerValue = {timerValue} setTimerIsActive = {setTimerIsActive}/>):
-        numberOfCards===20?
-          (<CardsContainer20 timerValue = {timerValue} setTimerIsActive = {setTimerIsActive}/>):
-            numberOfCards===30?
-            (<CardsContainer30 timerValue = {timerValue} setTimerIsActive = {setTimerIsActive}/>):
-            <></> */}
+      {numberOfCards?(<CardsContainer timerValue = {timerValue} setTimerIsActive = {setTimerIsActive} numberOfCards = {numberOfCards}/>):(null)}
       }
       <ChooseDifficulty 
         difficultyOnChange = {()=> setButtonEnabled(true)}
