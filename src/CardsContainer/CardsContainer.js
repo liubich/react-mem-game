@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Timer from '../Timer/Timer.js';
 import Card from '../Card/Card.js';
+import './CardsContainer.css';
 
 const CardsContainer = (props) => {
     const cardsPropertiesStart = Array(props.numberOfCards).fill(0).map((_, index) => ({

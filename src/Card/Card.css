@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.cards12 {
+  width: calc((100% - 40px) / 4);
+  height: calc((100% - 77px) / 3);
+}
+
+.cards20 {
+  width: calc((100% - 50px) / 5);
+  height: calc((100% - 87px) / 4);
+}
+
+.cards30 {
+  width: calc((100% - 60px) / 6);
+  height: calc((100% - 97px) / 5);
+}
+
+.card {
+  margin: 5px;
+  transform: scale(1);
+  transition: transform 0.4s;
+  transform-style: preserve-3d;
+  position: relative;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.scale:active {
+  transform: scale(0.97);
+  transition: transform 0.2s;
+}
+
+.frontImg {
+  transform: rotateY(180deg);
+}
+
+.frontImg,
+.backImg {
+  backface-visibility: hidden;
+  padding: 15%;
+  border-radius: 7px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #d4daf7;
+}
+
+.flip {
+  transform: rotateY(180deg);
+}

@@ -1,4 +1,6 @@
 import React from 'react';
+import './ChooseDifficulty.css';
+
 const ChooseDifficulty = (props) => {
     return (
       <div className = "modal" style = {{visibility: props.isDifficultyVisible ? "visible" : "hidden",}}>

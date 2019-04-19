@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import ChooseDifficulty from './ChooseDifficulty/ChooseDifficulty.js';
 import CardsContainer from './CardsContainer/CardsContainer.js';
-import './App.css';
+import './ReactMemGame.css';
 
-const App = () => {
+const ReactMemGame = () => {
   const [isButtonEnabled, setButtonEnabled] = useState(false);
   const [isDifficultyVisible, setDifficultyVisible] = useState(true);
   const [numberOfCards, setNumberOfCards] = useState(0);
@@ -43,4 +43,4 @@ return () => clearTimeout(timerId);
   );
 }
 
-export default App;
+export default ReactMemGame;
