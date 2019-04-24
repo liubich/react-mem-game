@@ -22,9 +22,10 @@ const CardsContainer = (props) => {
   
     const hideCards = () => {
       setTimeout(() => {
-        const cardsForHide = getOpenedCards();
-        cardsForHide.forEach(card => card.hidden = true);
-        cardsForHide.forEach(card => card.opened = false);
+        getOpenedCards().forEach(card => {
+          card.hidden = true;
+          card.opened = false;
+          });
         setCardsProperties(cardsPropertiesNew);
         if (!getVisibleCardsNum()) props.setTimerIsActive(false);
         setFieldIsLocked(false);
