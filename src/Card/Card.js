@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Card.css';
 
 const Card = (props) => {
@@ -16,5 +17,10 @@ const Card = (props) => {
         <img src={`img/${props.cardProperties.hiddenValue}.svg`} alt = {props.cardProperties.id} className = "frontImg"/>
       </div>
     );
+  }
+  Card.propTypes = {
+    cardProperties: PropTypes.object.isRequired,
+    onClick: PropTypes.object.isRequired,
+    numberOfCards: PropTypes.integer.isRequired
   }
   export default Card;

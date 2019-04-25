@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import './ChooseDifficulty.css';
 
 const ChooseDifficulty = (props) => {
@@ -32,5 +33,11 @@ const ChooseDifficulty = (props) => {
         </div>
       </div>
     )
+  }
+  ChooseDifficulty.propTypes = {
+    isDifficultyVisible: PropTypes.bool.isRequired,
+    difficultyOnChange: PropTypes.object.isRequired,
+    isButtonEnabled: PropTypes.bool.isRequired,
+    buttonOnClick: PropTypes.object.isReuired
   }
   export default ChooseDifficulty;

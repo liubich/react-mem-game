@@ -44,7 +44,6 @@ const ReactMemGame = () => {
   return (
     <>
       {numberOfCards?(<CardsContainer secondsForTimer = {secondsForTimer} setTimerIsActive = {setTimerIsActive} numberOfCards = {numberOfCards}/>):(null)}
-      }
       <ChooseDifficulty
         difficulties = {difficulties}
         selectedDifficulty = {selectedDifficulty}

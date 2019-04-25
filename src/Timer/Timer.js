@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Timer.css';
 const Timer = (props) => {
   let minutes = Math.floor(props.secondsForTimer / 60);
@@ -8,5 +9,8 @@ const Timer = (props) => {
     return (
       <div id="timer">{`${minutes}:${seconds}`}</div>
     )
+  }
+  Timer.propTypes = {
+    timerValue: PropTypes.string.isRequired
   }
 export default Timer;
