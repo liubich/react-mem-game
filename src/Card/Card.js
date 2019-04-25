@@ -19,8 +19,14 @@ const Card = (props) => {
     );
   }
   Card.propTypes = {
-    cardProperties: PropTypes.object.isRequired,
-    onClick: PropTypes.object.isRequired,
-    numberOfCards: PropTypes.integer.isRequired
+    cardProperties: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      hiddenValue: PropTypes.number.isRequired,
+      hidden: PropTypes.bool.isRequired,
+      opened: PropTypes.bool.isRequired,
+      positionOnField: PropTypes.number.isRequired
+    })).isRequired,
+    onClick: PropTypes.func.isRequired,
+    numberOfCards: PropTypes.number.isRequired
   }
   export default Card;

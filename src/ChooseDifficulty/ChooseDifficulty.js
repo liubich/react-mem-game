@@ -36,8 +36,8 @@ const ChooseDifficulty = (props) => {
   }
   ChooseDifficulty.propTypes = {
     isDifficultyVisible: PropTypes.bool.isRequired,
-    difficultyOnChange: PropTypes.object.isRequired,
+    difficultyOnChange: PropTypes.func.isRequired,
     isButtonEnabled: PropTypes.bool.isRequired,
-    buttonOnClick: PropTypes.object.isReuired
+    buttonOnClick: PropTypes.func.isRequired
   }
   export default ChooseDifficulty;
