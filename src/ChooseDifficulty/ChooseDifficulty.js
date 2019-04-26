@@ -21,7 +21,7 @@ const ChooseDifficulty = (props) => {
                 id = {diffic.title} 
                 value = {diffic.value} 
                 onChange = {difficultyOnChange}
-                checked = {diffic.checked}> 
+                checked = {props.selectedDifficulty === diffic.value}> 
               </input>
               <label htmlFor = {diffic.title}>{diffic.title}</label>
           </div>
