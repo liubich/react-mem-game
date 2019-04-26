@@ -26,7 +26,7 @@ const ReactMemGame = () => {
   const [timerValue, setTimerValue] = useState('00:00');
   const [selectedDifficulty, setSelectedDifficulty] = useState(0);
 
-  onDifficultySubmit = () => {
+  const onDifficultySubmit = () => {
     setDifficultyVisible(false);
     setNumberOfCards(selectedDifficulty);
     setTimeOfStart(new Date());
