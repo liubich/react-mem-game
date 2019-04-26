@@ -16,37 +16,19 @@ const ChooseDifficulty = (props) => {
             props.difficulties.map((diffic) => (
               <div className = "radioContainer">
               <input 
-                type = "radio" 
-                name = "difficulty" 
-                id = {diffic.title} 
-                value = {diffic.value} 
+                type = "radio"
+                name = "difficulty"
+                id = {diffic.title}
+                value = {diffic.value}
                 onChange = {difficultyOnChange}
-                checked = {props.selectedDifficulty === diffic.value}> 
+                checked = {props.selectedDifficulty === diffic.value}>
               </input>
               <label htmlFor = {diffic.title}>{diffic.title}</label>
           </div>
             ))
           }
-
-
-          {/* <div className = "radioContainer">
-              <input type = "radio" name = "difficulty" id = "Easy" value = "12" onChange = {props.difficultyOnChange}>
-              </input>
-              <label htmlFor = "Easy">Easy</label>
-          </div>
-          <div className = "radioContainer">
-              <input type = "radio" name = "difficulty" id = "Medium" value = "20" onChange = {props.difficultyOnChange}>
-              </input>
-              <label htmlFor="Medium">Medium</label>
-          </div>
-          <div className="radioContainer">
-              <input type="radio" name="difficulty" id="Hard" value="30" onChange = {props.difficultyOnChange}>
-              </input>
-              <label htmlFor="Hard">Hard</label>
-          </div> */}
-
-            <input type="submit" value="Start" id="submit" disabled = {!isButtonEnabled} onClick = {props.buttonOnClick}>
-            </input>
+          <input type="submit" value="Start" id="submit" disabled = {!isButtonEnabled} onClick = {props.onDifficultySubmit}>
+          </input>
         </div>
       </div>
     )
