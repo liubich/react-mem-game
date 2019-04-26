@@ -3,8 +3,22 @@ import ChooseDifficulty from './ChooseDifficulty/ChooseDifficulty.js';
 import CardsContainer from './CardsContainer/CardsContainer.js';
 import './ReactMemGame.css';
 
+const difficulties = [
+  {
+    title: "Easy",
+    value: 12
+  },
+  {
+    title: "Medium",
+    value: 20
+  },
+  {
+    title: "Hard",
+    value: 30
+  }
+]
+
 const ReactMemGame = () => {
-  const [isButtonEnabled, setButtonEnabled] = useState(false);
   const [isDifficultyVisible, setDifficultyVisible] = useState(true);
   const [numberOfCards, setNumberOfCards] = useState(0);
   const [timeOfStart, setTimeOfStart] = useState(new Date());
@@ -28,9 +42,8 @@ return () => clearTimeout(timerId);
     <>
       {numberOfCards?(<CardsContainer timerValue = {timerValue} setTimerIsActive = {setTimerIsActive} numberOfCards = {numberOfCards}/>):(null)}
       }
-      <ChooseDifficulty 
-        difficultyOnChange = {()=> setButtonEnabled(true)}
-        isButtonEnabled = {isButtonEnabled}
+      <ChooseDifficulty
+        difficulties = {difficulties}
         isDifficultyVisible = {isDifficultyVisible}
         buttonOnClick = {() => {
           setDifficultyVisible(false);

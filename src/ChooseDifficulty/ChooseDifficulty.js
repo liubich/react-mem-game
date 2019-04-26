@@ -1,20 +1,9 @@
 import React from 'react';
 import './ChooseDifficulty.css';
 
-const difficulties = [
-  {
-    title: "Easy",
-    value: 12
-  },
-  {
-    title: "Medium",
-    value: 20
-  },
-  {
-    title: "Hard",
-    value: 30
-  }
-]
+const [isButtonEnabled, setButtonEnabled] = useState(false);
+
+const difficultyOnChange = () => setButtonEnabled(true);
 
 const ChooseDifficulty = (props) => {
     return (
@@ -22,14 +11,14 @@ const ChooseDifficulty = (props) => {
         <div className = "modalContent">
           <p>Please, choose a level:</p>
           {
-            difficulties.map((diffic) => (
+            props.difficulties.map((diffic) => (
               <div className = "radioContainer">
               <input 
                 type = "radio" 
                 name = "difficulty" 
                 id = {diffic.title} 
                 value = {diffic.value} 
-                onChange = {props.difficultyOnChange}> 
+                onChange = {difficultyOnChange}> 
               </input>
               <label htmlFor = {diffic.title}>{diffic.title}</label>
           </div>
@@ -53,7 +42,7 @@ const ChooseDifficulty = (props) => {
               <label htmlFor="Hard">Hard</label>
           </div> */}
 
-            <input type="submit" value="Start" id="submit" disabled = {!props.isButtonEnabled} onClick = {props.buttonOnClick}>
+            <input type="submit" value="Start" id="submit" disabled = {!isButtonEnabled} onClick = {props.buttonOnClick}>
             </input>
         </div>
       </div>
