@@ -22,10 +22,16 @@ const ChooseDifficulty = (props) => {
         <div className = "modalContent">
           <p>Please, choose a level:</p>
           {
-            difficulties.map((diffic, index) => (
+            difficulties.map((diffic) => (
               <div className = "radioContainer">
-              <input type = "radio" name = "difficulty" id = {index} value = {diffic.value} onChange = {props.difficultyOnChange}> {diffic.title}
+              <input 
+                type = "radio" 
+                name = "difficulty" 
+                id = {diffic.title} 
+                value = {diffic.value} 
+                onChange = {props.difficultyOnChange}> 
               </input>
+              <label htmlFor = {diffic.title}>{diffic.title}</label>
           </div>
             ))
           }
@@ -46,7 +52,7 @@ const ChooseDifficulty = (props) => {
               </input>
               <label htmlFor="Hard">Hard</label>
           </div> */}
-          
+
             <input type="submit" value="Start" id="submit" disabled = {!props.isButtonEnabled} onClick = {props.buttonOnClick}>
             </input>
         </div>
