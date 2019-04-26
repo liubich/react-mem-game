@@ -30,7 +30,7 @@ const ReactMemGame = () => {
 
   const changeDifficulty = (value) => {
     difficulties.forEach(diff => diff.checked = false);
-    difficulties.filter(diff => diff.value = value).checked = true;
+    difficulties.filter(diff => diff.value === value).checked = true;
   }
 
   useEffect(() => {
