@@ -21,11 +21,6 @@ const difficulties = [
   }
 ];
 
-const changeDifficulty = (value) => {
-  difficulties.forEach(diff => diff.checked = false);
-  difficulties.filter(diff => diff.value = value).checked = true;
-}
-
 const ReactMemGame = () => {
   const [isDifficultyVisible, setDifficultyVisible] = useState(true);
   const [numberOfCards, setNumberOfCards] = useState(0);
@@ -33,18 +28,23 @@ const ReactMemGame = () => {
   const [timerIsActive, setTimerIsActive] = useState(false);
   const [timerValue, setTimerValue] = useState('00:00');
 
-useEffect(() => {
-  if(timerIsActive) {
-  const timerId = setTimeout(() => {
-    const secondsForTimer = Math.round(((new Date()) - timeOfStart)/1000);
-    let minutes = Math.floor(secondsForTimer / 60);
-    if (minutes < 10) minutes = `0${minutes}`;
-    let seconds = secondsForTimer % 60;
-    if (seconds < 10) seconds = `0${seconds}`;
-    setTimerValue(`${minutes}:${seconds}`);
-  }, 1000);
-return () => clearTimeout(timerId);
-}});
+  const changeDifficulty = (value) => {
+    difficulties.forEach(diff => diff.checked = false);
+    difficulties.filter(diff => diff.value = value).checked = true;
+  }
+
+  useEffect(() => {
+    if(timerIsActive) {
+    const timerId = setTimeout(() => {
+      const secondsForTimer = Math.round(((new Date()) - timeOfStart)/1000);
+      let minutes = Math.floor(secondsForTimer / 60);
+      if (minutes < 10) minutes = `0${minutes}`;
+      let seconds = secondsForTimer % 60;
+      if (seconds < 10) seconds = `0${seconds}`;
+      setTimerValue(`${minutes}:${seconds}`);
+    }, 1000);
+  return () => clearTimeout(timerId);
+  }});
 
   return (
     <>
