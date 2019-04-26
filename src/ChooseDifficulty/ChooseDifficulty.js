@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './ChooseDifficulty.css';
 
 const [isButtonEnabled, setButtonEnabled] = useState(false);
 
-const difficultyOnChange = () => setButtonEnabled(true);
-
 const ChooseDifficulty = (props) => {
+
+  const difficultyOnChange = (event) => {
+    setButtonEnabled(true);
+    props.changeDifficulty(parseInt(event.target.value, 10));
+  };
     return (
       <div className = "modal" style = {{visibility: props.isDifficultyVisible ? "visible" : "hidden",}}>
         <div className = "modalContent">
@@ -18,7 +21,8 @@ const ChooseDifficulty = (props) => {
                 name = "difficulty" 
                 id = {diffic.title} 
                 value = {diffic.value} 
-                onChange = {difficultyOnChange}> 
+                onChange = {difficultyOnChange}
+                checked = {diffic.checked}> 
               </input>
               <label htmlFor = {diffic.title}>{diffic.title}</label>
           </div>

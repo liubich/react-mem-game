@@ -6,17 +6,25 @@ import './ReactMemGame.css';
 const difficulties = [
   {
     title: "Easy",
-    value: 12
+    value: 12,
+    checked: false
   },
   {
     title: "Medium",
-    value: 20
+    value: 20,
+    checked: false
   },
   {
     title: "Hard",
-    value: 30
+    value: 30,
+    checked: false
   }
-]
+];
+
+const changeDifficulty = (value) => {
+  difficulties.forEach(diff => diff.checked = false);
+  difficulties.filter(diff => diff.value = value).checked = true;
+}
 
 const ReactMemGame = () => {
   const [isDifficultyVisible, setDifficultyVisible] = useState(true);
@@ -44,10 +52,11 @@ return () => clearTimeout(timerId);
       }
       <ChooseDifficulty
         difficulties = {difficulties}
+        changeDifficulty = {changeDifficulty}
         isDifficultyVisible = {isDifficultyVisible}
         buttonOnClick = {() => {
           setDifficultyVisible(false);
-          setNumberOfCards(parseInt(document.querySelector('input[name="difficulty"]:checked').value, 10));
+          setNumberOfCards(difficulties.find(diff => diff.checked).value);
           setTimeOfStart(new Date());
           setTimerIsActive(true);
         }}
