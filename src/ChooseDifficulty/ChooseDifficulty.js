@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import './ChooseDifficulty.css';
 
-const [isButtonEnabled, setButtonEnabled] = useState(false);
-
 const ChooseDifficulty = (props) => {
+  const [isButtonEnabled, setButtonEnabled] = useState(false);
 
   const difficultyOnChange = (event) => {
     setButtonEnabled(true);
