@@ -23,7 +23,7 @@ const ReactMemGame = () => {
   const [numberOfCards, setNumberOfCards] = useState(0);
   const [timeOfStart, setTimeOfStart] = useState(new Date());
   const [timerIsActive, setTimerIsActive] = useState(false);
-  const [timerValue, setTimerValue] = useState('00:00');
+  const [secondsForTimer, setSecondsForTimer] = useState(0);
   const [selectedDifficulty, setSelectedDifficulty] = useState(0);
 
   const onDifficultySubmit = () => {
@@ -36,19 +36,14 @@ const ReactMemGame = () => {
   useEffect(() => {
     if(timerIsActive) {
     const timerId = setTimeout(() => {
-      const secondsForTimer = Math.round(((new Date()) - timeOfStart)/1000);
-      let minutes = Math.floor(secondsForTimer / 60);
-      if (minutes < 10) minutes = `0${minutes}`;
-      let seconds = secondsForTimer % 60;
-      if (seconds < 10) seconds = `0${seconds}`;
-      setTimerValue(`${minutes}:${seconds}`);
+      setSecondsForTimer(Math.round(((new Date()) - timeOfStart)/1000));
     }, 1000);
   return () => clearTimeout(timerId);
   }});
 
   return (
     <>
-      {numberOfCards?(<CardsContainer timerValue = {timerValue} setTimerIsActive = {setTimerIsActive} numberOfCards = {numberOfCards}/>):(null)}
+      {numberOfCards?(<CardsContainer secondsForTimer = {secondsForTimer} setTimerIsActive = {setTimerIsActive} numberOfCards = {numberOfCards}/>):(null)}
       }
       <ChooseDifficulty
         difficulties = {difficulties}

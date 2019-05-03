@@ -73,7 +73,7 @@ const CardsContainer = (props) => {
       <main id = "cardsContainer">
         <div id = "innerContainer">
         <Timer 
-          timerValue = {props.timerValue}
+          secondsForTimer = {props.secondsForTimer}
         />
           {cardsProperties.map((cardProperties, index) =>(
             <Card
