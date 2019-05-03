@@ -13,17 +13,17 @@ const ChooseDifficulty = (props) => {
         <div className = "modalContent">
           <p>Please, choose a level:</p>
           {
-            props.difficulties.map((diffic) => (
+            props.difficulties.map(({title, value}) => (
               <div className = "radioContainer">
               <input 
                 type = "radio"
                 name = "difficulty"
-                id = {diffic.title}
-                value = {diffic.value}
+                id = {title}
+                value = {value}
                 onChange = {difficultyOnChange}
-                checked = {props.selectedDifficulty === diffic.value}>
+                checked = {props.selectedDifficulty === value}>
               </input>
-              <label htmlFor = {diffic.title}>{diffic.title}</label>
+              <label htmlFor = {title}>{title}</label>
           </div>
             ))
           }
