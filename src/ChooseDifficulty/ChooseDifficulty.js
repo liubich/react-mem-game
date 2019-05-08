@@ -1,28 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './ChooseDifficulty.css';
 
 const ChooseDifficulty = (props) => {
+  const [isButtonEnabled, setButtonEnabled] = useState(false);
+
+  const difficultyOnChange = (event) => {
+    setButtonEnabled(true);
+    props.changeDifficulty(parseInt(event.target.value, 10));
+  };
     return (
       <div className = "modal" style = {{visibility: props.isDifficultyVisible ? "visible" : "hidden",}}>
         <div className = "modalContent">
           <p>Please, choose a level:</p>
-          <div className = "radioContainer">
-              <input type = "radio" name = "difficulty" id = "Easy" value = "12" onChange = {props.difficultyOnChange}>
+          {
+            props.difficulties.map(({title, value}) => (
+              <div className = "radioContainer">
+              <input 
+                type = "radio"
+                name = "difficulty"
+                id = {title}
+                value = {value}
+                onChange = {difficultyOnChange}
+                checked = {props.selectedDifficulty === value}>
               </input>
-              <label htmlFor = "Easy">Easy</label>
+              <label htmlFor = {title}>{title}</label>
           </div>
-          <div className = "radioContainer">
-              <input type = "radio" name = "difficulty" id = "Medium" value = "20" onChange = {props.difficultyOnChange}>
-              </input>
-              <label htmlFor="Medium">Medium</label>
-          </div>
-          <div className="radioContainer">
-              <input type="radio" name="difficulty" id="Hard" value="30" onChange = {props.difficultyOnChange}>
-              </input>
-              <label htmlFor="Hard">Hard</label>
-          </div>
-            <input type="submit" value="Start" id="submit" disabled = {!props.isButtonEnabled} onClick = {props.buttonOnClick}>
-            </input>
+            ))
+          }
+          <input type="submit" value="Start" id="submit" disabled = {!isButtonEnabled} onClick = {props.onDifficultySubmit}>
+          </input>
         </div>
       </div>
     )
