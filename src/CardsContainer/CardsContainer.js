@@ -90,7 +90,7 @@ const CardsContainer = (props) => {
   }
   CardsContainer.propTypes = {
     numberOfCards: PropTypes.number.isRequired,
-    setTimerIsActive: PropTypes.func.isRequired,
-    timerValue: PropTypes.string.isRequired
+    secondsForTimer: PropTypes.number.isRequired,
+    setTimerIsActive: PropTypes.func.isRequired
   }
   export default CardsContainer;

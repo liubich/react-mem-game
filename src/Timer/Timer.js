@@ -11,6 +11,6 @@ const Timer = (props) => {
     )
   }
   Timer.propTypes = {
-    timerValue: PropTypes.string.isRequired
+    secondsForTimer: PropTypes.number.isRequired
   }
 export default Timer;

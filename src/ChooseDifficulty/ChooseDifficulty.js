@@ -14,8 +14,8 @@ const ChooseDifficulty = (props) => {
         <div className = "modalContent">
           <p>Please, choose a level:</p>
           {
-            props.difficulties.map(({title, value}) => (
-              <div className = "radioContainer">
+            props.difficulties.map(({title, value}, index) => (
+              <div className = "radioContainer" key = {index}>
               <input 
                 type = "radio"
                 name = "difficulty"
@@ -36,8 +36,12 @@ const ChooseDifficulty = (props) => {
   }
   ChooseDifficulty.propTypes = {
     isDifficultyVisible: PropTypes.bool.isRequired,
-    difficultyOnChange: PropTypes.func.isRequired,
-    isButtonEnabled: PropTypes.bool.isRequired,
-    buttonOnClick: PropTypes.func.isRequired
+    difficulties: PropTypes.arrayOf(PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      value: PropTypes.number.isRequired
+    })).isRequired,
+    selectedDifficulty: PropTypes.number.isRequired,
+    changeDifficulty: PropTypes.func.isRequired,
+    onDifficultySubmit: PropTypes.func.isRequired
   }
   export default ChooseDifficulty;
