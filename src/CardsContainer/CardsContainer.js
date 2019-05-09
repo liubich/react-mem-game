@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import Timer from '../Timer/Timer.js';
 import Card from '../Card/Card.js';
 import './CardsContainer.css';
@@ -50,7 +51,7 @@ const CardsContainer = (props) => {
           if(areOpenedCardsEqual()) {
             hideCards();
             return;
-          };
+          }
           setTimeout(() => {
             getOpenedCards().forEach(card => card.opened = false);
             setCardsProperties(cardsPropertiesNew);
@@ -86,5 +87,10 @@ const CardsContainer = (props) => {
         </div>
       </main>
     );
+  }
+  CardsContainer.propTypes = {
+    numberOfCards: PropTypes.number.isRequired,
+    secondsForTimer: PropTypes.number.isRequired,
+    setTimerIsActive: PropTypes.func.isRequired
   }
   export default CardsContainer;
