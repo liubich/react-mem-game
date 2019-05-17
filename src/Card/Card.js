@@ -13,8 +13,8 @@ const Card = (props) => {
           visibility: props.cardProperties.hidden ? "hidden" : "visible",
         }}
       >
-        <img src=  "img/js-badge.svg" alt = {props.cardProperties.id} className = "backImg"/>
-        <img src={`img/${props.cardProperties.hiddenValue}.svg`} alt = {props.cardProperties.id} className = "frontImg"/>
+        <img src= "img/react.svg" alt = {props.cardProperties.id} className = "backImg"/>
+        <img src= {`img/${props.cardProperties.hiddenValue}.svg`} alt = {props.cardProperties.id} className = "frontImg"/>
       </div>
     );
   }
