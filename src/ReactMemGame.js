@@ -1,58 +1,44 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import * as gameActions from './redux/actions/gameActions';
 import ChooseDifficulty from './ChooseDifficulty/ChooseDifficulty.js';
 import CardsContainer from './CardsContainer/CardsContainer.js';
 import './ReactMemGame.css';
 
-const difficulties = [
-  {
-    title: "Easy",
-    value: 12
-  },
-  {
-    title: "Medium",
-    value: 20
-  },
-  {
-    title: "Hard",
-    value: 30
-  }
-];
-
-const ReactMemGame = () => {
-  const [isDifficultyVisible, setDifficultyVisible] = useState(true);
-  const [numberOfCards, setNumberOfCards] = useState(0);
-  const [timeOfStart, setTimeOfStart] = useState(new Date());
-  const [timerIsActive, setTimerIsActive] = useState(false);
-  const [secondsForTimer, setSecondsForTimer] = useState(0);
-  const [selectedDifficulty, setSelectedDifficulty] = useState(0);
-
-  const onDifficultySubmit = () => {
-    setDifficultyVisible(false);
-    setNumberOfCards(selectedDifficulty);
-    setTimeOfStart(new Date());
-    setTimerIsActive(true);
-  };
+const ReactMemGame = (props) => {
 
   useEffect(() => {
-    if(timerIsActive) {
-    const timerId = setTimeout(() => {
-      setSecondsForTimer(Math.round(((new Date()) - timeOfStart)/1000));
-    }, 1000);
-  return () => clearTimeout(timerId);
-  }});
+    if (props.timerIsActive) {
+      const timerId = setInterval(() => {
+        props.dispatch(gameActions.setSecondsForTimer(Math.round(((new Date()) - props.timeOfStart) / 1000)));
+      }, 1000);
+      return () => clearInterval(timerId);
+    }
+  });
 
   return (
     <>
-      {numberOfCards?(<CardsContainer secondsForTimer = {secondsForTimer} setTimerIsActive = {setTimerIsActive} numberOfCards = {numberOfCards}/>):(null)}
+      {props.numberOfCards ? (<CardsContainer />) : (null)}
       <ChooseDifficulty
-        difficulties = {difficulties}
-        selectedDifficulty = {selectedDifficulty}
-        changeDifficulty = {setSelectedDifficulty}
-        isDifficultyVisible = {isDifficultyVisible}
-        onDifficultySubmit = {onDifficultySubmit}
       />
-    </> 
+    </>
   );
 }
 
-export default ReactMemGame;
+ReactMemGame.propTypes = {
+  numberOfCards: PropTypes.number,
+  timeOfStart: PropTypes.instanceOf(Date),
+  timerIsActive: PropTypes.bool.isRequired,
+  dispatch: PropTypes.func.isRequired,
+}
+
+function mapStateToProps(state) {
+  return {
+    numberOfCards: state.numberOfCards,
+    timeOfStart: state.timeOfStart,
+    timerIsActive: state.timerIsActive
+  }
+}
+
+export default connect(mapStateToProps)(ReactMemGame);
