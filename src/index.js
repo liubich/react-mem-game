@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import ReactMemGame from './ReactMemGame';
 import configureStore from './redux/configureStore';
 import { Provider } from 'react-redux';
