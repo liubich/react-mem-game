@@ -12,7 +12,7 @@ export default function gameReducer(state, action) {
           .fill(0)
           .map((_, index) => ({
             id: index,
-            hiddenValue: Math.floor(index / 2),
+            hiddenValue: Math.floor(index / 2).toString(10),
             hidden: false,
             opened: false,
             positionOnField: Math.floor(Math.random() * 50),
