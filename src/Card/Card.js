@@ -19,14 +19,14 @@ const Card = props => {
     >
       <img
         src={`data:image/svg+xml;base64,${inlineImagesObj.backImg}`}
-        alt={props.cardProperties.id}
+        alt="card back"
         className="backImg"
       />
       <img
         src={`data:image/svg+xml;base64,${
           inlineImagesObj[props.cardProperties.hiddenValue]
         }`}
-        alt={props.cardProperties.id}
+        alt="card front"
         className="frontImg"
       />
     </div>
