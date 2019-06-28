@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './Card.css';
+import { inlineImagesObj } from '../images.js';
 
 const Card = props => {
   return (
@@ -17,12 +18,14 @@ const Card = props => {
       }}
     >
       <img
-        src="img/react.svg"
+        src={`data:image/svg+xml;base64,${inlineImagesObj.backImg}`}
         alt={props.cardProperties.id}
         className="backImg"
       />
       <img
-        src={`img/${props.cardProperties.hiddenValue}.svg`}
+        src={`data:image/svg+xml;base64,${
+          inlineImagesObj[props.cardProperties.hiddenValue]
+        }`}
         alt={props.cardProperties.id}
         className="frontImg"
       />
