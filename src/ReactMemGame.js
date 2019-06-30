@@ -19,9 +19,7 @@ const ReactMemGame = (props) => {
 
   return (
     <>
-      {props.numberOfCards ? (<CardsContainer />) : (null)}
-      <ChooseDifficulty
-      />
+      {props.numberOfCards ? (<CardsContainer />) : (<ChooseDifficulty />)}
     </>
   );
 }
