@@ -25,6 +25,7 @@ const ChooseDifficulty = props => {
           {props.difficulties.map(({ title, value }, index) => (
             <div className="radioContainer" key={index}>
               <input
+                className="radio-button"
                 type="radio"
                 name="difficulty"
                 id={title}
