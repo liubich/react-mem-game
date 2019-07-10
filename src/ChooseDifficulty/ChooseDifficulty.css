@@ -42,6 +42,7 @@
 }
 
 label {
+  padding-left: 4px;
   font-size: 1.2rem;
   color: #9a0794;
   cursor: pointer;
