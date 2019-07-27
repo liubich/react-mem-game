@@ -17,12 +17,12 @@ const Card = props => {
       }}
     >
       <img
-        src="img/react.svg"
+        src={props.backImg}
         alt={props.cardProperties.id}
         className="backImg"
       />
       <img
-        src={`img/${props.cardProperties.hiddenValue}.svg`}
+        src={props.frontImg}
         alt={props.cardProperties.id}
         className="frontImg"
       />
@@ -40,5 +40,7 @@ Card.propTypes = {
   }).isRequired,
   onClick: PropTypes.func.isRequired,
   numberOfCards: PropTypes.number.isRequired,
+  frontImg: PropTypes.string.isRequired,
+  backImg: PropTypes.string.isRequired,
 };
 export default Card;
