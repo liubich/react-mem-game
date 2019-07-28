@@ -22,10 +22,10 @@ const ReactMemGame = props => {
 
   return (
     <>
-      {props.numberOfCards ? (
-        <CardsContainer />
-      ) : props.showRestartButton ? (
+      {props.showRestartButton ? (
         <RestartButton />
+      ) : props.numberOfCards ? (
+        <CardsContainer />
       ) : (
         <ChooseDifficulty />
       )}
@@ -46,6 +46,7 @@ function mapStateToProps(state) {
     numberOfCards: state.numberOfCards,
     timeOfStart: state.timeOfStart,
     timerIsActive: state.timerIsActive,
+    showRestartButton: state.showRestartButton,
   };
 }
 
