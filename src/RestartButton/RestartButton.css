@@ -1,6 +1,6 @@
 .restart-button {
-  margin: auto;
   padding: 15px;
+  margin: 50px;
   font: bold 60px "Courier New", Courier, monospace;
   background-color: rgb(253, 253, 253);
   color: #f980f5;
@@ -10,4 +10,16 @@
 .restart-button:hover,
 .restart-button:focus {
   color: #9a0794;
+}
+
+.restart-container {
+  margin: auto;
+}
+
+.restart-time-caption {
+  text-align: center;
+  color: #fba90a;
+  font-size: 200%;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bolder;
 }

@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { restartGame } from "../redux/actions/gameActions";
+import Timer from "../Timer/Timer.js";
 import "./RestartButton.css";
 
 const RestartButton = props => {
@@ -9,9 +10,13 @@ const RestartButton = props => {
     props.dispatch(restartGame());
   };
   return (
-    <button className="restart-button" onClick={restartButtonOnClick}>
-      Restart
-    </button>
+    <div className="restart-container">
+      <h1 className="restart-time-caption">Your time is:</h1>
+      <Timer />
+      <button className="restart-button" onClick={restartButtonOnClick}>
+        Restart
+      </button>
+    </div>
   );
 };
 RestartButton.propTypes = {
