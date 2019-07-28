@@ -51,7 +51,6 @@ export default function gameReducer(state, action) {
         ...state,
         cardsProperties,
       };
-
     case "OPEN_CARD":
       cardsProperties = state.cardsProperties.map(value =>
         Object.assign({}, value),
