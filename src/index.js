@@ -11,6 +11,7 @@ const store = configureStore({
   secondsForTimer: 0,
   isButtonEnabled: false,
   isDifficultyVisible: true,
+  showRestartButton: false,
   difficulties: [
     {
       title: "Easy",
