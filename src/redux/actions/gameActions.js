@@ -69,3 +69,7 @@ export function closeCard(id) {
 export function setSecondsForTimer(seconds) {
   return { type: "SET_SECONDS", seconds };
 }
+
+export function restartGame() {
+  return { type: "RESTART_GAME" };
+}
