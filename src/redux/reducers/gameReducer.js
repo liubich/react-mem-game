@@ -62,6 +62,8 @@ export default function gameReducer(state, action) {
       };
     case "SET_SECONDS":
       return { ...state, secondsForTimer: action.seconds };
+    case "RESTART_GAME":
+      return state;
     default:
       return state;
   }
