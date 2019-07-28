@@ -20,7 +20,17 @@ const ReactMemGame = props => {
     }
   });
 
-  return <>{props.numberOfCards ? <CardsContainer /> : <ChooseDifficulty />}</>;
+  return (
+    <>
+      {props.numberOfCards ? (
+        <CardsContainer />
+      ) : props.showRestartButton ? (
+        <RestartButton />
+      ) : (
+        <ChooseDifficulty />
+      )}
+    </>
+  );
 };
 
 ReactMemGame.propTypes = {
@@ -28,6 +38,7 @@ ReactMemGame.propTypes = {
   timeOfStart: PropTypes.instanceOf(Date),
   timerIsActive: PropTypes.bool.isRequired,
   dispatch: PropTypes.func.isRequired,
+  showRestartButton: PropTypes.bool.isRequired,
 };
 
 function mapStateToProps(state) {
