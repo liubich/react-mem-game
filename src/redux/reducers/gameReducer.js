@@ -40,8 +40,8 @@ export default function gameReducer(state, action) {
       return { ...state, fieldIsLocked: true };
     case "START_TIMER":
       return { ...state, timerIsActive: true };
-    case "STOP_TIMER":
-      return { ...state, timerIsActive: false };
+    case "END_GAME":
+      return { ...state, timerIsActive: false, showRestartButton: true };
     case "CLOSE_CARD":
       cardsProperties = state.cardsProperties.map(value =>
         Object.assign({}, value),
