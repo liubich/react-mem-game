@@ -18,7 +18,6 @@ const CardsContainer = props => {
             cardProperties={cardProperties}
             onClick={id => props.dispatch(gameActions.onCardClick(id))}
             numberOfCards={props.numberOfCards}
-            backImg={images.backImg}
             frontImg={images[cardProperties.hiddenValue]}
           />
         ))}
