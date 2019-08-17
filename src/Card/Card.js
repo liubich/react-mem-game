@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./Card.css";
+import { backgroundImage } from "../resources/images";
 
 const Card = props => {
   return (
@@ -17,7 +18,7 @@ const Card = props => {
       }}
     >
       <img
-        src={props.backImg}
+        src={backgroundImage}
         alt={props.cardProperties.id}
         className="backImg"
       />
