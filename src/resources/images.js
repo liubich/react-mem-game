@@ -15,21 +15,21 @@ import img12 from "./12.svg";
 import img13 from "./13.svg";
 import img14 from "./14.svg";
 
-export const images = {
-  backImg: backImg,
-  "0": img0,
-  "1": img1,
-  "2": img2,
-  "3": img3,
-  "4": img4,
-  "5": img5,
-  "6": img6,
-  "7": img7,
-  "8": img8,
-  "9": img9,
-  "10": img10,
-  "11": img11,
-  "12": img12,
-  "13": img13,
-  "14": img14,
-};
+export const backgroundImage = backImg;
+export const images = [
+  img0,
+  img1,
+  img2,
+  img3,
+  img4,
+  img5,
+  img6,
+  img7,
+  img8,
+  img9,
+  img10,
+  img11,
+  img12,
+  img13,
+  img14,
+];
