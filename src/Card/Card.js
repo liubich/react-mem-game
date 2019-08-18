@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./Card.css";
+import { backgroundImage } from "../resources/images";
 
 const Card = props => {
   return (
@@ -17,12 +18,12 @@ const Card = props => {
       }}
     >
       <img
-        src="img/react.svg"
+        src={backgroundImage}
         alt={props.cardProperties.id}
         className="backImg"
       />
       <img
-        src={`img/${props.cardProperties.hiddenValue}.svg`}
+        src={props.frontImg}
         alt={props.cardProperties.id}
         className="frontImg"
       />
@@ -40,5 +41,6 @@ Card.propTypes = {
   }).isRequired,
   onClick: PropTypes.func.isRequired,
   numberOfCards: PropTypes.number.isRequired,
+  frontImg: PropTypes.string.isRequired,
 };
 export default Card;

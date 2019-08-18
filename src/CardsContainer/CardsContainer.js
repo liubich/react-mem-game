@@ -5,6 +5,7 @@ import Timer from "../Timer/Timer.js";
 import Card from "../Card/Card.js";
 import * as gameActions from "../redux/actions/gameActions";
 import "./CardsContainer.css";
+import { images } from "../resources/images";
 
 const CardsContainer = props => {
   return (
@@ -17,6 +18,7 @@ const CardsContainer = props => {
             cardProperties={cardProperties}
             onClick={id => props.dispatch(gameActions.onCardClick(id))}
             numberOfCards={props.numberOfCards}
+            frontImg={images[cardProperties.hiddenValue]}
           />
         ))}
       </div>
