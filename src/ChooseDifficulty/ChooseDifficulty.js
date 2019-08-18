@@ -1,8 +1,8 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import './ChooseDifficulty.css';
-import * as gameActions from '../redux/actions/gameActions';
+import React from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import "./ChooseDifficulty.css";
+import * as gameActions from "../redux/actions/gameActions";
 
 const ChooseDifficulty = props => {
   const difficultyOnChange = event => {
@@ -17,7 +17,7 @@ const ChooseDifficulty = props => {
   return (
     <div
       className="modal"
-      style={{ visibility: props.isDifficultyVisible ? 'visible' : 'hidden' }}
+      style={{ visibility: props.isDifficultyVisible ? "visible" : "hidden" }}
     >
       <div className="modalContent">
         <p>Please, choose a level:</p>
@@ -70,5 +70,4 @@ function mapStateToProps(state) {
     difficulties: state.difficulties,
   };
 }
-
 export default connect(mapStateToProps)(ChooseDifficulty);
