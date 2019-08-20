@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import * as gameActions from "./redux/actions/gameActions";
 import ChooseDifficulty from "./ChooseDifficulty/ChooseDifficulty.js";
 import CardsContainer from "./CardsContainer/CardsContainer.js";
+import RestartButton from "./RestartButton/RestartButton.js"
 import "./ReactMemGame.css";
 
 const ReactMemGame = props => {
