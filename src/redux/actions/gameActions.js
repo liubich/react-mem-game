@@ -31,7 +31,7 @@ export function onCardClick(id) {
             getOpenedCards().forEach(({ id }) =>
               dispatch({ type: "HIDE_CARD", id }),
             );
-            if (!getVisibleCardsNum()) dispatch({ type: "STOP_TIMER" });
+            if (!getVisibleCardsNum()) dispatch({ type: "END_GAME" });
             dispatch({ type: "UNLOCK_FIELD" });
           }, 1000);
         } else {
@@ -68,4 +68,8 @@ export function closeCard(id) {
 
 export function setSecondsForTimer(seconds) {
   return { type: "SET_SECONDS", seconds };
+}
+
+export function restartGame() {
+  return { type: "RESTART_GAME" };
 }

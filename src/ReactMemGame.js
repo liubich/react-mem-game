@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import * as gameActions from "./redux/actions/gameActions";
 import ChooseDifficulty from "./ChooseDifficulty/ChooseDifficulty.js";
 import CardsContainer from "./CardsContainer/CardsContainer.js";
+import RestartButton from "./RestartButton/RestartButton.js"
 import "./ReactMemGame.css";
 
 const ReactMemGame = props => {
@@ -20,7 +21,17 @@ const ReactMemGame = props => {
     }
   });
 
-  return <>{props.numberOfCards ? <CardsContainer /> : <ChooseDifficulty />}</>;
+  return (
+    <>
+      {props.showRestartButton ? (
+        <RestartButton />
+      ) : props.numberOfCards ? (
+        <CardsContainer />
+      ) : (
+        <ChooseDifficulty />
+      )}
+    </>
+  );
 };
 
 ReactMemGame.propTypes = {
@@ -28,6 +39,7 @@ ReactMemGame.propTypes = {
   timeOfStart: PropTypes.instanceOf(Date),
   timerIsActive: PropTypes.bool.isRequired,
   dispatch: PropTypes.func.isRequired,
+  showRestartButton: PropTypes.bool.isRequired,
 };
 
 function mapStateToProps(state) {
@@ -35,6 +47,7 @@ function mapStateToProps(state) {
     numberOfCards: state.numberOfCards,
     timeOfStart: state.timeOfStart,
     timerIsActive: state.timerIsActive,
+    showRestartButton: state.showRestartButton,
   };
 }
 
