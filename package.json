@@ -30,8 +30,7 @@
     "lint:js": "eslint src/**/*.js",
     "lint:css": "stylelint src/**/*.css",
     "start": "react-app-rewired start",
-    "build": "react-app-rewired build && npm run build-sw",
-    "build-sw": "node ./src/sw-build.js",
+    "build": "react-app-rewired build",
     "test": "react-app-rewired test",
     "eject": "react-scripts eject"
   },
