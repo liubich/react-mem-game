@@ -62,12 +62,12 @@ ChooseDifficulty.propTypes = {
   isButtonEnabled: PropTypes.bool.isRequired,
 };
 
-function mapStateToProps(state) {
+function mapStateToProps({ difficulties, selectedDifficulty, isDifficultyVisible, isButtonEnabled }) {
   return {
-    isDifficultyVisible: state.isDifficultyVisible,
-    isButtonEnabled: state.isButtonEnabled,
-    selectedDifficulty: state.selectedDifficulty,
-    difficulties: state.difficulties,
+    isDifficultyVisible,
+    isButtonEnabled,
+    selectedDifficulty,
+    difficulties,
   };
 }
 export default connect(mapStateToProps)(ChooseDifficulty);
