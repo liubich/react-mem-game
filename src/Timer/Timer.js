@@ -15,8 +15,8 @@ Timer.propTypes = {
   secondsForTimer: PropTypes.number.isRequired,
 };
 
-function mapStateToProps(state) {
-  return { secondsForTimer: state.secondsForTimer };
+function mapStateToProps({ secondsForTimer }) {
+  return { secondsForTimer };
 }
 
 export default connect(mapStateToProps)(Timer);
