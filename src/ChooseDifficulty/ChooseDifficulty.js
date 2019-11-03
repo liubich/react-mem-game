@@ -11,7 +11,7 @@ const ChooseDifficulty = ({ dispatch, difficulties, selectedDifficulty, isDiffic
     );
   };
 
-  const onDifficultySubmit = () => {
+  const onSubmit = () => {
     dispatch(onDifficultySubmit(selectedDifficulty));
   };
   return (
@@ -42,7 +42,7 @@ const ChooseDifficulty = ({ dispatch, difficulties, selectedDifficulty, isDiffic
           value="Start"
           id="submit"
           disabled={!isButtonEnabled}
-          onClick={onDifficultySubmit}
+          onClick={onSubmit}
         />
       </div>
     </div>
