@@ -3,28 +3,28 @@ import PropTypes from "prop-types";
 import "./Card.css";
 import { backgroundImage } from "../resources/images";
 
-const Card = props => {
+const Card = ({ numberOfCards, cardProperties, onClick, frontImg }) => {
   return (
     <div
-      id={props.cardProperties.id}
+      id={cardProperties.id}
       className={
-        `cards${props.numberOfCards} card` +
-        (props.cardProperties.opened ? " flip" : " scale")
+        `cards${numberOfCards} card` +
+        (cardProperties.opened ? " flip" : " scale")
       }
-      onClick={() => props.onClick(props.cardProperties.id)}
+      onClick={() => onClick(cardProperties.id)}
       style={{
-        order: props.cardProperties.positionOnField,
-        visibility: props.cardProperties.hidden ? "hidden" : "visible",
+        order: cardProperties.positionOnField,
+        visibility: cardProperties.hidden ? "hidden" : "visible",
       }}
     >
       <img
         src={backgroundImage}
-        alt={props.cardProperties.id}
+        alt={cardProperties.id}
         className="backImg"
       />
       <img
-        src={props.frontImg}
-        alt={props.cardProperties.id}
+        src={frontImg}
+        alt={cardProperties.id}
         className="frontImg"
       />
     </div>

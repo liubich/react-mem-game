@@ -3,21 +3,21 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import Timer from "../Timer/Timer.js";
 import Card from "../Card/Card.js";
-import * as gameActions from "../redux/actions/gameActions";
+import { onCardClick } from "../redux/actions/gameActions";
 import "./CardsContainer.css";
 import { images } from "../resources/images";
 
-const CardsContainer = props => {
+const CardsContainer = ({ dispatch, cardsProperties, numberOfCards }) => {
   return (
     <main id="cardsContainer">
       <div id="innerContainer">
         <Timer />
-        {props.cardsProperties.map((cardProperties, index) => (
+        {cardsProperties.map((cardProperties, index) => (
           <Card
             key={index}
             cardProperties={cardProperties}
-            onClick={id => props.dispatch(gameActions.onCardClick(id))}
-            numberOfCards={props.numberOfCards}
+            onClick={id => dispatch(onCardClick(id))}
+            numberOfCards={numberOfCards}
             frontImg={images[cardProperties.hiddenValue]}
           />
         ))}
@@ -38,14 +38,12 @@ CardsContainer.propTypes = {
     }),
   ),
   dispatch: PropTypes.func.isRequired,
-  fieldIsLocked: PropTypes.bool.isRequired,
 };
 
-function mapStateToProps(state) {
+function mapStateToProps({ numberOfCards, cardsProperties }) {
   return {
-    numberOfCards: state.numberOfCards,
-    cardsProperties: state.cardsProperties,
-    fieldIsLocked: state.fieldIsLocked,
+    numberOfCards,
+    cardsProperties,
   };
 }
 
