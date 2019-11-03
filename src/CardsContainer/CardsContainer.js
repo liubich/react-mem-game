@@ -7,17 +7,17 @@ import * as gameActions from "../redux/actions/gameActions";
 import "./CardsContainer.css";
 import { images } from "../resources/images";
 
-const CardsContainer = props => {
+const CardsContainer = ({ dispatch, cardsProperties, numberOfCards }) => {
   return (
     <main id="cardsContainer">
       <div id="innerContainer">
         <Timer />
-        {props.cardsProperties.map((cardProperties, index) => (
+        {cardsProperties.map((cardProperties, index) => (
           <Card
             key={index}
             cardProperties={cardProperties}
-            onClick={id => props.dispatch(gameActions.onCardClick(id))}
-            numberOfCards={props.numberOfCards}
+            onClick={id => dispatch(gameActions.onCardClick(id))}
+            numberOfCards={numberOfCards}
             frontImg={images[cardProperties.hiddenValue]}
           />
         ))}
