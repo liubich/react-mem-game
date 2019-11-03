@@ -42,12 +42,12 @@ ReactMemGame.propTypes = {
   showRestartButton: PropTypes.bool.isRequired,
 };
 
-function mapStateToProps(state) {
+function mapStateToProps({ numberOfCards, timeOfStart, timerIsActive, showRestartButton }) {
   return {
-    numberOfCards: state.numberOfCards,
-    timeOfStart: state.timeOfStart,
-    timerIsActive: state.timerIsActive,
-    showRestartButton: state.showRestartButton,
+    numberOfCards,
+    timeOfStart,
+    timerIsActive,
+    showRestartButton,
   };
 }
 
