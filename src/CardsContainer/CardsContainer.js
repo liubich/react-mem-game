@@ -41,11 +41,11 @@ CardsContainer.propTypes = {
   fieldIsLocked: PropTypes.bool.isRequired,
 };
 
-function mapStateToProps(state) {
+function mapStateToProps({ numberOfCards, cardsProperties, fieldIsLocked }) {
   return {
-    numberOfCards: state.numberOfCards,
-    cardsProperties: state.cardsProperties,
-    fieldIsLocked: state.fieldIsLocked,
+    numberOfCards,
+    cardsProperties,
+    fieldIsLocked,
   };
 }
 
