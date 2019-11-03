@@ -2,17 +2,17 @@ import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import "./ChooseDifficulty.css";
-import * as gameActions from "../redux/actions/gameActions";
+import { onDifficultyPick, onDifficultySubmit } from "../redux/actions/gameActions";
 
 const ChooseDifficulty = ({ dispatch, difficulties, selectedDifficulty, isDifficultyVisible, isButtonEnabled }) => {
   const difficultyOnChange = event => {
     dispatch(
-      gameActions.onDifficultyPick(parseInt(event.target.value, 10)),
+      onDifficultyPick(parseInt(event.target.value, 10)),
     );
   };
 
   const onDifficultySubmit = () => {
-    dispatch(gameActions.onDifficultySubmit(selectedDifficulty));
+    dispatch(onDifficultySubmit(selectedDifficulty));
   };
   return (
     <div
