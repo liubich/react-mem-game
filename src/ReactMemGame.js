@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import * as gameActions from "./redux/actions/gameActions";
+import { setSecondsForTimer } from "./redux/actions/gameActions";
 import ChooseDifficulty from "./ChooseDifficulty/ChooseDifficulty.js";
 import CardsContainer from "./CardsContainer/CardsContainer.js";
 import RestartButton from "./RestartButton/RestartButton.js"
@@ -12,7 +12,7 @@ const ReactMemGame = ({ dispatch, timeOfStart, timerIsActive, showRestartButton,
     if (timerIsActive) {
       const timerId = setInterval(() => {
         dispatch(
-          gameActions.setSecondsForTimer(
+          setSecondsForTimer(
             Math.round((new Date() - timeOfStart) / 1000),
           ),
         );
