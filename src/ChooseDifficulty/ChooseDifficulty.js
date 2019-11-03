@@ -4,25 +4,25 @@ import PropTypes from "prop-types";
 import "./ChooseDifficulty.css";
 import * as gameActions from "../redux/actions/gameActions";
 
-const ChooseDifficulty = props => {
+const ChooseDifficulty = ({ dispatch, difficulties, selectedDifficulty, isDifficultyVisible, isButtonEnabled }) => {
   const difficultyOnChange = event => {
-    props.dispatch(
+    dispatch(
       gameActions.onDifficultyPick(parseInt(event.target.value, 10)),
     );
   };
 
   const onDifficultySubmit = () => {
-    props.dispatch(gameActions.onDifficultySubmit(props.selectedDifficulty));
+    dispatch(gameActions.onDifficultySubmit(selectedDifficulty));
   };
   return (
     <div
       className="modal"
-      style={{ visibility: props.isDifficultyVisible ? "visible" : "hidden" }}
+      style={{ visibility: isDifficultyVisible ? "visible" : "hidden" }}
     >
       <div className="modalContent">
         <p>Please, choose a level:</p>
         <div className="radio-buttons">
-          {props.difficulties.map(({ title, value }, index) => (
+          {difficulties.map(({ title, value }, index) => (
             <div className="radioContainer" key={index}>
               <input
                 className="radio-button"
@@ -31,7 +31,7 @@ const ChooseDifficulty = props => {
                 id={title}
                 value={value}
                 onChange={difficultyOnChange}
-                checked={props.selectedDifficulty === value}
+                checked={selectedDifficulty === value}
               />
               <label htmlFor={title}>{title}</label>
             </div>
@@ -41,7 +41,7 @@ const ChooseDifficulty = props => {
           type="submit"
           value="Start"
           id="submit"
-          disabled={!props.isButtonEnabled}
+          disabled={!isButtonEnabled}
           onClick={onDifficultySubmit}
         />
       </div>
