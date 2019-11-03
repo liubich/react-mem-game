@@ -38,14 +38,12 @@ CardsContainer.propTypes = {
     }),
   ),
   dispatch: PropTypes.func.isRequired,
-  fieldIsLocked: PropTypes.bool.isRequired,
 };
 
-function mapStateToProps({ numberOfCards, cardsProperties, fieldIsLocked }) {
+function mapStateToProps({ numberOfCards, cardsProperties }) {
   return {
     numberOfCards,
     cardsProperties,
-    fieldIsLocked,
   };
 }
 
