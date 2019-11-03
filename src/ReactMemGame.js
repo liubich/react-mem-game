@@ -7,13 +7,13 @@ import CardsContainer from "./CardsContainer/CardsContainer.js";
 import RestartButton from "./RestartButton/RestartButton.js"
 import "./ReactMemGame.css";
 
-const ReactMemGame = props => {
+const ReactMemGame = ({ dispatch, timeOfStart, timerIsActive, showRestartButton, numberOfCards }) => {
   useEffect(() => {
-    if (props.timerIsActive) {
+    if (timerIsActive) {
       const timerId = setInterval(() => {
-        props.dispatch(
+        dispatch(
           gameActions.setSecondsForTimer(
-            Math.round((new Date() - props.timeOfStart) / 1000),
+            Math.round((new Date() - timeOfStart) / 1000),
           ),
         );
       }, 1000);
@@ -23,13 +23,13 @@ const ReactMemGame = props => {
 
   return (
     <>
-      {props.showRestartButton ? (
+      {showRestartButton ? (
         <RestartButton />
-      ) : props.numberOfCards ? (
+      ) : numberOfCards ? (
         <CardsContainer />
       ) : (
-        <ChooseDifficulty />
-      )}
+            <ChooseDifficulty />
+          )}
     </>
   );
 };
