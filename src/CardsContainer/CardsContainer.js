@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import Timer from "../Timer/Timer.js";
 import Card from "../Card/Card.js";
-import * as gameActions from "../redux/actions/gameActions";
+import { onCardClick } from "../redux/actions/gameActions";
 import "./CardsContainer.css";
 import { images } from "../resources/images";
 
@@ -16,7 +16,7 @@ const CardsContainer = ({ dispatch, cardsProperties, numberOfCards }) => {
           <Card
             key={index}
             cardProperties={cardProperties}
-            onClick={id => dispatch(gameActions.onCardClick(id))}
+            onClick={id => dispatch(onCardClick(id))}
             numberOfCards={numberOfCards}
             frontImg={images[cardProperties.hiddenValue]}
           />
