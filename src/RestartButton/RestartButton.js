@@ -5,9 +5,9 @@ import { restartGame } from "../redux/actions/gameActions";
 import Timer from "../Timer/Timer.js";
 import "./RestartButton.css";
 
-const RestartButton = props => {
+const RestartButton = ({ dispatch }) => {
   const restartButtonOnClick = () => {
-    props.dispatch(restartGame());
+    dispatch(restartGame());
   };
   return (
     <div className="restart-container">
