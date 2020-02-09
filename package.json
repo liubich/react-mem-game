@@ -14,7 +14,7 @@
     "react-app-rewired": "2.1.5",
     "redux-immutable-state-invariant": "2.1.0",
     "stylelint": "13.0.0",
-    "stylelint-config-standard": "19.0.0"
+    "stylelint-config-standard": "20.0.0"
   },
   "repository": {
     "type": "git",
